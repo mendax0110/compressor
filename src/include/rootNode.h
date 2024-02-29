@@ -32,6 +32,4 @@ namespace rootNode
     };
 }
 
-
-
 #endif // ROOTNODE_H

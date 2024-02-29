@@ -141,6 +141,11 @@ void decode(Node* root, ofstream& o, const vector<bool>& decodedBits, int charsT
 
     for (bool bit : decodedBits)
     {
+        if (current == nullptr) 
+        {
+            return;
+        }
+
         if (bit == 0)
         {
             current = dynamic_cast<RootNode*>(current)->left;
@@ -158,7 +163,7 @@ void decode(Node* root, ofstream& o, const vector<bool>& decodedBits, int charsT
 
             if (charsDecoded == charsToDecode)
             {
-                return;
+                break;
             }
         }
     }
@@ -166,9 +171,20 @@ void decode(Node* root, ofstream& o, const vector<bool>& decodedBits, int charsT
 
 int main(int argc, char* argv[])
 {
-    if(argc != 4)
+    if (argc != 4)
     {
-        cout << "Wrong number of arguments" << endl;
+        cout << "---------------------------------------------------------------------------" << endl;
+        cout << "Usage:" << endl;
+        cout << "To compress:   " << argv[0] << " [input_file] -comp [output_file]" << endl;
+        cout << "To decompress: " << argv[0] << " [input_file] -decomp [output_file]" << endl;
+        cout << "---------------------------------------------------------------------------" << endl;
+
+        cout << "---------------------------------------------------------------------------" << endl;
+        cout << "Example:" << endl;
+        cout << "Compress: " << "Compressor hello.txt -comp hello" << endl;
+        cout << "Decompress: " << "Compressor hello.bin -decomp restoredHello.txt" << endl;
+        cout << "---------------------------------------------------------------------------" << endl;
+
         return 1;
     }
 
@@ -184,7 +200,7 @@ int main(int argc, char* argv[])
         }
 
         ofstream compressFile;
-        compressFile.open(string(argv[3]) + ".txt");
+        compressFile.open(string(argv[3]) + ".bin", ios::out | ios::binary);
 
         int frequencyTable[256] = {0};
         int numOfUniqueChars = 0;
@@ -193,7 +209,7 @@ int main(int argc, char* argv[])
 
         while (file >> noskipws >> c)
         {
-            ++frequencyTable[(int)c];
+            frequencyTable[(int)c]++;
             ++numOfChars;
         }
 
@@ -260,7 +276,7 @@ int main(int argc, char* argv[])
         int uniqueChars = 0;
 
         ifstream file;
-        file.open(argv[1]);
+        file.open(argv[1], ios::binary);
 
         if (!file.is_open())
         {
@@ -269,22 +285,24 @@ int main(int argc, char* argv[])
         }
 
         ofstream decompressFile;
-        decompressFile.open(string(argv[3]) + ".txt");
+        decompressFile.open(string(argv[3]));
 
         file >> charsToDecode >> uniqueChars;
-        file.ignore(1, '\n');
+        file.ignore(numeric_limits<streamsize>::max(), '\n');
 
         int frequencyTable[256] = {0};
 
-        // TODO: This is a bug. The frequency table is not being read correctly.
         for (int i = 0; i < uniqueChars; ++i)
         {
             char c;
             int frequency;
-            file >> c >> frequency;
-            file.ignore(1, '\n');
 
-            int index = (int)c;
+            file >> noskipws >> c;
+            file.ignore(1, ' ');
+            file >> noskipws >> frequency;
+            file.ignore(numeric_limits<streamsize>::max(), '\n');
+
+            int index = static_cast<unsigned char>(c);
             frequencyTable[index] = frequency;
         }
 
@@ -294,8 +312,8 @@ int main(int argc, char* argv[])
 
         vector<bool> decodedBits;
         unsigned char pack;
-
-        while (file >> noskipws >> pack)
+   
+        while (file.read(reinterpret_cast<char*>(&pack), sizeof(unsigned char)))
         {
             unpack(pack, decodedBits);
         }
