@@ -13,8 +13,10 @@
 
 #include <iostream>
 
+/// @brief Namespace for the normal node \namespace normalNode
 namespace normalNode
 {
+    /// @brief This class represents a node \class Node
     class Node
     {
     public:

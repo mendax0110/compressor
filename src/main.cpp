@@ -27,6 +27,10 @@ using namespace rootNode;
 using namespace compare;
 
 
+/// @brief This is the method to pack the bitstream
+/// @param bitstream This is the bitstream
+/// @param compressFile This is the file to compress
+/// @return This will return the encoded bytes
 vector<uint8_t> pack(const vector<bool>& bitstream, ofstream& compressFile)
 {
     vector<uint8_t> encodedBytes;
@@ -59,6 +63,9 @@ vector<uint8_t> pack(const vector<bool>& bitstream, ofstream& compressFile)
     return encodedBytes;
 }
 
+/// @brief This is the function to unpack the bitstream
+/// @param character This is the character
+/// @param bitstream This is the bitstream
 void unpack(unsigned char character, vector<bool>& bitstream)
 {
     for (int i = 7; i >= 0; --i)
@@ -67,6 +74,9 @@ void unpack(unsigned char character, vector<bool>& bitstream)
     }
 }
 
+/// @brief This is the method to build the priority queue
+/// @param frequencyTable This is the vector of the frequency table
+/// @return This will return push the nodes into the priority queue and return the nodes
 priority_queue<Node*, vector<Node*>, Compare> buildPriorityQueue(int* frequencyTable)
 {
     priority_queue<Node*, vector<Node*>, Compare> nodes;
@@ -82,6 +92,10 @@ priority_queue<Node*, vector<Node*>, Compare> buildPriorityQueue(int* frequencyT
     return nodes;
 }
 
+/// @brief This is the method to traverse the tree
+/// @param root This is the root of the tree
+/// @param code This is the code
+/// @param huffmanCode This is the parameter for the huffman code
 void traverseTree(Node* root, string code, map<char, string>& huffmanCode)
 {
     if (LeafNode* leaf = dynamic_cast<LeafNode*>(root))
@@ -96,6 +110,9 @@ void traverseTree(Node* root, string code, map<char, string>& huffmanCode)
     }
 }
 
+/// @brief This is the function to build the huffman tree
+/// @param nodes These are the nodes
+/// @return This will return the nodes
 Node* buildHuffmanTree(priority_queue<Node*, vector<Node*>, Compare>& nodes)
 {
     while(nodes.size() >= 2)
@@ -134,6 +151,11 @@ Node* buildHuffmanTree(priority_queue<Node*, vector<Node*>, Compare>& nodes)
     return nodes.top();
 }
 
+/// @brief This is the function to decode the huffman tree
+/// @param root This is the root of the tree
+/// @param o This is the output file
+/// @param decodedBits This are the decoded bits
+/// @param charsToDecode These are the characters to decode
 void decode(Node* root, ofstream& o, const vector<bool>& decodedBits, int charsToDecode)
 {
     Node* current = root;
@@ -169,6 +191,10 @@ void decode(Node* root, ofstream& o, const vector<bool>& decodedBits, int charsT
     }
 }
 
+/// @brief This is the main method of the compressor
+/// @param argc This is the number of arguments
+/// @param argv This is the argument vector
+/// @return This will return 0 if the program runs successfully
 int main(int argc, char* argv[])
 {
     if (argc != 4)

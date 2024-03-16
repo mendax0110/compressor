@@ -1,0 +1,187 @@
+\doxysection{C\+:/\+Users/\+Adrian/\+Documents/git/compressor/src/main.cpp File Reference}
+\hypertarget{main_8cpp}{}\label{main_8cpp}\index{C:/Users/Adrian/Documents/git/compressor/src/main.cpp@{C:/Users/Adrian/Documents/git/compressor/src/main.cpp}}
+
+
+This file contains the main program.  
+
+
+{\ttfamily \#include $<$iostream$>$}\newline
+{\ttfamily \#include $<$string$>$}\newline
+{\ttfamily \#include $<$queue$>$}\newline
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$vector$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include "{}../src/include/node.\+h"{}}\newline
+{\ttfamily \#include "{}../src/include/leaf\+Node.\+h"{}}\newline
+{\ttfamily \#include "{}../src/include/root\+Node.\+h"{}}\newline
+{\ttfamily \#include "{}../src/include/compare.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+vector$<$ uint8\+\_\+t $>$ \mbox{\hyperlink{main_8cpp_aa27c7fdf94126e347ada689bb18a3acf}{pack}} (const vector$<$ bool $>$ \&bitstream, ofstream \&compress\+File)
+\begin{DoxyCompactList}\small\item\em This is the method to pack the bitstream. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a187b19b7ac94cff75d5427f4de5fde28}{unpack}} (unsigned char character, vector$<$ bool $>$ \&bitstream)
+\begin{DoxyCompactList}\small\item\em This is the function to unpack the bitstream. \end{DoxyCompactList}\item 
+priority\+\_\+queue$<$ \mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}, vector$<$ \mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} $>$, \mbox{\hyperlink{classcompare_1_1_compare}{Compare}} $>$ \mbox{\hyperlink{main_8cpp_a4c53d986e3f821c50ccd3d727f24d5c9}{build\+Priority\+Queue}} (int \texorpdfstring{$\ast$}{*}frequency\+Table)
+\begin{DoxyCompactList}\small\item\em This is the method to build the priority queue. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ab689d42864225b12635e8cea7b681177}{traverse\+Tree}} (\mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}root, string code, map$<$ char, string $>$ \&huffman\+Code)
+\begin{DoxyCompactList}\small\item\em This is the method to traverse the tree. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{main_8cpp_a8fdd7dcdcf659259e06b77bdc0f1bfa2}{build\+Huffman\+Tree}} (priority\+\_\+queue$<$ \mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}, vector$<$ \mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} $>$, \mbox{\hyperlink{classcompare_1_1_compare}{Compare}} $>$ \&nodes)
+\begin{DoxyCompactList}\small\item\em This is the function to build the huffman tree. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a3e69ce5c9a64f0d69c54b789b2c6342e}{decode}} (\mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}root, ofstream \&o, const vector$<$ bool $>$ \&decoded\+Bits, int chars\+To\+Decode)
+\begin{DoxyCompactList}\small\item\em This is the function to decode the huffman tree. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main}} (int argc, char \texorpdfstring{$\ast$}{*}argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em This is the main method of the compressor. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This file contains the main program. 
+
+\begin{DoxyAuthor}{Author}
+Adrian Goessl 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+2024-\/02-\/25
+\end{DoxyDate}
+\begin{DoxyCopyright}{Copyright}
+MIT 2024 
+\end{DoxyCopyright}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8cpp_a8fdd7dcdcf659259e06b77bdc0f1bfa2}\label{main_8cpp_a8fdd7dcdcf659259e06b77bdc0f1bfa2} 
+\index{main.cpp@{main.cpp}!buildHuffmanTree@{buildHuffmanTree}}
+\index{buildHuffmanTree@{buildHuffmanTree}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{buildHuffmanTree()}{buildHuffmanTree()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} build\+Huffman\+Tree (\begin{DoxyParamCaption}\item[{priority\+\_\+queue$<$ \mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}, vector$<$ \mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} $>$, \mbox{\hyperlink{classcompare_1_1_compare}{Compare}} $>$ \&}]{nodes }\end{DoxyParamCaption})}
+
+
+
+This is the function to build the huffman tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodes} & These are the nodes \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This will return the nodes 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a4c53d986e3f821c50ccd3d727f24d5c9}\label{main_8cpp_a4c53d986e3f821c50ccd3d727f24d5c9} 
+\index{main.cpp@{main.cpp}!buildPriorityQueue@{buildPriorityQueue}}
+\index{buildPriorityQueue@{buildPriorityQueue}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{buildPriorityQueue()}{buildPriorityQueue()}}
+{\footnotesize\ttfamily priority\+\_\+queue$<$ \mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}, vector$<$ \mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*} $>$, \mbox{\hyperlink{classcompare_1_1_compare}{Compare}} $>$ build\+Priority\+Queue (\begin{DoxyParamCaption}\item[{int \texorpdfstring{$\ast$}{*}}]{frequency\+Table }\end{DoxyParamCaption})}
+
+
+
+This is the method to build the priority queue. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em frequency\+Table} & This is the vector of the frequency table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This will return push the nodes into the priority queue and return the nodes 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_a3e69ce5c9a64f0d69c54b789b2c6342e}\label{main_8cpp_a3e69ce5c9a64f0d69c54b789b2c6342e} 
+\index{main.cpp@{main.cpp}!decode@{decode}}
+\index{decode@{decode}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{decode()}{decode()}}
+{\footnotesize\ttfamily void decode (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root,  }\item[{ofstream \&}]{o,  }\item[{const vector$<$ bool $>$ \&}]{decoded\+Bits,  }\item[{int}]{chars\+To\+Decode }\end{DoxyParamCaption})}
+
+
+
+This is the function to decode the huffman tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & This is the root of the tree \\
+\hline
+{\em o} & This is the output file \\
+\hline
+{\em decoded\+Bits} & This are the decoded bits \\
+\hline
+{\em chars\+To\+Decode} & These are the characters to decode \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8cpp_a0ddf1224851353fc92bfbff6f499fa97} 
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{int}]{argc,  }\item[{char \texorpdfstring{$\ast$}{*}}]{argv\mbox{[}$\,$\mbox{]} }\end{DoxyParamCaption})}
+
+
+
+This is the main method of the compressor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em argc} & This is the number of arguments \\
+\hline
+{\em argv} & This is the argument vector \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This will return 0 if the program runs successfully 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_aa27c7fdf94126e347ada689bb18a3acf}\label{main_8cpp_aa27c7fdf94126e347ada689bb18a3acf} 
+\index{main.cpp@{main.cpp}!pack@{pack}}
+\index{pack@{pack}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{pack()}{pack()}}
+{\footnotesize\ttfamily vector$<$ uint8\+\_\+t $>$ pack (\begin{DoxyParamCaption}\item[{const vector$<$ bool $>$ \&}]{bitstream,  }\item[{ofstream \&}]{compress\+File }\end{DoxyParamCaption})}
+
+
+
+This is the method to pack the bitstream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em bitstream} & This is the bitstream \\
+\hline
+{\em compress\+File} & This is the file to compress \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+This will return the encoded bytes 
+\end{DoxyReturn}
+\Hypertarget{main_8cpp_ab689d42864225b12635e8cea7b681177}\label{main_8cpp_ab689d42864225b12635e8cea7b681177} 
+\index{main.cpp@{main.cpp}!traverseTree@{traverseTree}}
+\index{traverseTree@{traverseTree}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{traverseTree()}{traverseTree()}}
+{\footnotesize\ttfamily void traverse\+Tree (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classnormal_node_1_1_node}{Node}} \texorpdfstring{$\ast$}{*}}]{root,  }\item[{string}]{code,  }\item[{map$<$ char, string $>$ \&}]{huffman\+Code }\end{DoxyParamCaption})}
+
+
+
+This is the method to traverse the tree. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em root} & This is the root of the tree \\
+\hline
+{\em code} & This is the code \\
+\hline
+{\em huffman\+Code} & This is the parameter for the huffman code \\
+\hline
+\end{DoxyParams}
+\Hypertarget{main_8cpp_a187b19b7ac94cff75d5427f4de5fde28}\label{main_8cpp_a187b19b7ac94cff75d5427f4de5fde28} 
+\index{main.cpp@{main.cpp}!unpack@{unpack}}
+\index{unpack@{unpack}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{unpack()}{unpack()}}
+{\footnotesize\ttfamily void unpack (\begin{DoxyParamCaption}\item[{unsigned char}]{character,  }\item[{vector$<$ bool $>$ \&}]{bitstream }\end{DoxyParamCaption})}
+
+
+
+This is the function to unpack the bitstream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em character} & This is the character \\
+\hline
+{\em bitstream} & This is the bitstream \\
+\hline
+\end{DoxyParams}

@@ -1,1 +1,11 @@
-build
+# Ignore the .dist directory
+.dist
+
+# Ignore the .vscode directory
+.vscode
+
+# Ignore the build directory
+/build
+
+# Ignore the doxygen file
+Doxyfile

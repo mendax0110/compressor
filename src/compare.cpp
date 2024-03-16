@@ -12,10 +12,17 @@
 
 using namespace compare;
 
+
+/// @brief Simple constructor
 Compare::Compare()
 {
+
 }
 
+/// @brief This function is the operator, which gets the frequency of the nodes
+/// @param a This is the first node
+/// @param b This is the second node
+/// @return This will return the result of the comparison
 bool Compare::operator()(const normalNode::Node* a, const normalNode::Node* b) const
 {
     int freqA = a->getFrequency();

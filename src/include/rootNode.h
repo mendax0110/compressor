@@ -14,8 +14,10 @@
 #include <iostream>
 #include "node.h"
 
+/// @brief Namespace for the root node \namespace rootNode
 namespace rootNode
 {
+    /// @brief This class represents a root node, which inherits from the Node class \class Root
     class RootNode : public normalNode::Node
     {
     public:

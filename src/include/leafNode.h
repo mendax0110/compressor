@@ -15,8 +15,10 @@
 
 #include "node.h"
 
+/// @brief Namespace for the leaf node \namespace leafNode
 namespace leafNode
 {
+    /// @brief This class represents a leaf node, which inherits from the Node class \class LeafNode
     class LeafNode : public normalNode::Node
     {
     public:

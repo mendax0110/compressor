@@ -17,8 +17,10 @@
 #include "leafNode.h"
 #include "rootNode.h"
 
+/// @brief Namespace for the compare \namespace compare
 namespace compare
 {
+    /// @brief This is the compare class \class Compare
     class Compare
     {
     public:

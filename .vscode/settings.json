@@ -1,5 +1,15 @@
 {
     "files.associations": {
-        "stdexcept": "cpp"
+        "stdexcept": "cpp",
+        "algorithm": "cpp",
+        "compare": "cpp",
+        "concepts": "cpp",
+        "map": "cpp",
+        "memory": "cpp",
+        "ranges": "cpp",
+        "type_traits": "cpp",
+        "vector": "cpp",
+        "xlocale": "cpp",
+        "xutility": "cpp"
     }
 }

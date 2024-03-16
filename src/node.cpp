@@ -13,10 +13,14 @@
 using namespace normalNode;
 using namespace std;
 
+/// @brief This is the constructor for the Node class
 Node::Node(int timeStamp) : timeStamp(timeStamp)
 {
+
 }
 
+/// @brief This is the method to get the time stamp
+/// @return This will return the time stamp or throw an error if it is negative
 int Node::getTimeStamp() const
 {
     if (timeStamp < 0)
