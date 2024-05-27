@@ -13,8 +13,8 @@ This program implements a simple text compressor using the Huffman coding algori
 - **7:** Repeat all the steps from step-2 to step-6.
 
 ![Huffman_huff_demo](https://github.com/mendax0110/compressor/assets/52537419/b7b327c4-174e-4ca7-95d7-ca8850a6a3e5)
-License: https://creativecommons.org/licenses/by-sa/3.0/
-Source: https://commons.wikimedia.org/wiki/File:Huffman_huff_demo.gif
+- **License:** https://creativecommons.org/licenses/by-sa/3.0/
+- **Source:** https://commons.wikimedia.org/wiki/File:Huffman_huff_demo.gif
 
 
 ## Usage
