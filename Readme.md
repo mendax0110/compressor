@@ -4,12 +4,13 @@ This program implements a simple text compressor using the Huffman coding algori
 
 # HowTo
 **1:** Calculate the frequency of each string.
-**2:** Sort all the characters on the basis of their frequency in ascending order.
-**3:** Mark each unique character as a leaf node.
-**4:** Create a new internal node. 
-**5:** The frequency of the new node as the sum of the single leaf node
-**6:** Mark the first node as this left child and another node as the right child of the recently created node. 
-**7:** Repeat all the steps from step-2 to step-6.
+
+- **2:** Sort all the characters on the basis of their frequency in ascending order.
+- **3:** Mark each unique character as a leaf node.
+- **4:** Create a new internal node. 
+- **5:** The frequency of the new node as the sum of the single leaf node
+- **6:** Mark the first node as this left child and another node as the right child of the recently created node. 
+- **7:** Repeat all the steps from step-2 to step-6.
 
 ![Huffman_huff_demo](https://github.com/mendax0110/compressor/assets/52537419/b7b327c4-174e-4ca7-95d7-ca8850a6a3e5)
 License: https://creativecommons.org/licenses/by-sa/3.0/
