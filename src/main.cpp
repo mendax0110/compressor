@@ -14,6 +14,9 @@
 #include <fstream>
 #include <vector>
 #include <map>
+#include <cstdint>
+#include <ios>
+#include <limits>
 
 #include "../src/include/node.h"
 #include "../src/include/leafNode.h"
